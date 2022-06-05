@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="primary" dark v-if="isHome">
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -36,20 +32,26 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
+    <div v-else></div>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-
+import '../public/css/style.css'
 export default {
   name: 'App',
 
   data: () => ({
     //
   }),
-};
+  computed: {
+    isHome() {
+      return this.$router.path === '/home'
+    },
+  },
+}
 </script>
