@@ -20,7 +20,10 @@
               v-if="arrowOption.currentSlide !== onboardings.length - 1"
               class=""
             ></div>
-            <v-btn v-else block color="primary">Mulai</v-btn>
+
+            <div v-else>
+              <v-btn block color="primary">Mulai</v-btn>
+            </div>
           </div>
         </div>
       </template>
