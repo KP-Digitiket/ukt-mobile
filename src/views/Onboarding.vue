@@ -1,32 +1,27 @@
 <template>
   <div>
     <SplashScreen />
-    <VueSlickCarousel v-bind="carousel" ref="carousel">
+    <VueSlickCarousel
+      v-bind="carousel"
+      ref="carousel"
+      @afterChange="afterChange"
+    >
       <div v-for="(item, index) in onboardings" :key="index">
-        <div class="center">
-          <h1 class="text-center brand mt-15">PayUKT</h1>
-          <v-img :src="item.imageUrl"></v-img>
-          <h2 class="text-center subtitle">{{ item.subtitle }}</h2>
-          <p class="text-center text">
-            {{ item.text }}
-          </p>
-        </div>
-      </div>
-      <template #nextArrow="arrowOption">
-        <div>
-          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-          <div class="">
-            <div
-              v-if="arrowOption.currentSlide !== onboardings.length - 1"
-              class=""
-            ></div>
+        <h1 class="text-center brand mt-15">PayUKT</h1>
+        <v-img :src="item.imageUrl"></v-img>
+        <h2 class="text-center subtitle">{{ item.subtitle }}</h2>
+        <p class="text-center text">
+          {{ item.text }}
+        </p>
+        <div v-if="currentSlide !== onboardings.length - 1"></div>
 
-            <div v-else>
-              <v-btn block color="primary">Mulai</v-btn>
-            </div>
-          </div>
-        </div>
-      </template>
+        <v-container v-else class="ml-3">
+          <v-btn block class="btn-primary">
+            Mulai
+          </v-btn>
+        </v-container>
+      </div>
+
     </VueSlickCarousel>
   </div>
 </template>
@@ -37,7 +32,7 @@ export default {
   name: 'Onboarding',
   data() {
     return {
-      slide: 0,
+      currentSlide: 0,
       getStartedButton: false,
       onboardings: [
         {
@@ -74,9 +69,30 @@ export default {
     }
   },
   components: { SplashScreen },
+  methods: {
+    afterChange(page) {
+      this.currentSlide = page
+      console.log(page)
+    },
+  },
+  computed: {
+    currentPage() {
+      if (this.currentSlide == 0) {
+        return 1
+      } else {
+        return this.currentSlide / this.onboardings.slidesToScroll + 1
+      }
+    },
+  },
 }
 </script>
 <style scoped>
+.btn-primary {
+  background: #38af79 !important;
+  color: white;
+  height: 55px !important;
+  border-radius: 8px;
+}
 .center {
   margin: 0 auto !important;
 }
