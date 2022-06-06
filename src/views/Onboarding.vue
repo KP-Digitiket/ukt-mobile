@@ -16,12 +16,11 @@
         <div v-if="currentSlide !== onboardings.length - 1"></div>
 
         <v-container v-else class="ml-3">
-          <v-btn block class="btn-primary">
+          <v-btn block class="btn-primary" to="/daftar">
             Mulai
           </v-btn>
         </v-container>
       </div>
-
     </VueSlickCarousel>
   </div>
 </template>
@@ -72,7 +71,7 @@ export default {
   methods: {
     afterChange(page) {
       this.currentSlide = page
-      console.log(page)
+      // console.log(page)
     },
   },
   computed: {
@@ -87,12 +86,6 @@ export default {
 }
 </script>
 <style scoped>
-.btn-primary {
-  background: #38af79 !important;
-  color: white;
-  height: 55px !important;
-  border-radius: 8px;
-}
 .center {
   margin: 0 auto !important;
 }
