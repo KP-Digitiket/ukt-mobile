@@ -21,32 +21,7 @@
           </v-btn>
         </v-container>
       </div>
-      <!-- <template #nextArrow="arrowOption"> -->
-      <!-- <div>
-          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-          <div class="test d-flex justify-content-between">
-            <div class="test">
-              <router-link to="/home">
-                <p class="txt-lewati">Lewati</p>
-              </router-link>
-              <p
-                v-if="arrowOption.currentSlide !== onboardings.length - 1"
-                class="txt-selanjutnya"
-              >
-                Selanjutnya
-              </p>
 
-              <v-btn v-else color="primary" class="btn-login" to="/login">
-                Login
-              </v-btn>
-            </div>
-          </div>
-        </div>
-      </template> -->
-      <!-- <template #customPaging="">
-        <div v-if="this.slide === onboardings.length-1></div>
-        <v-btn block v-else color="primary">Get Started</v-btn>
-      </template>-->
     </VueSlickCarousel>
   </div>
 </template>
