@@ -1,0 +1,32 @@
+.brand {
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #14684e;
+}
+
+.subtitle {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #185a46;
+}
+.text {
+  width: 275px;
+  height: 36px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* text-align: center; */
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  color: #a4d693;
+}
